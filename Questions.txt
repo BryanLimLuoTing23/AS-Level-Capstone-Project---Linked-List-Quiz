@@ -1,0 +1,16 @@
+Q1S: Do Linked Lists have finite or infinite space?
+Q2S: Can items be removed from any position in the linked list?
+Q3S: Via the CIE syllabus, there are 2 arrays used to store the linked list. What are they?
+Q4P: Under class "Node", declare a Linked List with 3 nodes. 3 node names are: Node1, Node2, Node3. 3 cargos are "Name1", "Name2" and "Name3". 
+Q5P: Write a program to print a Linked list normally. The following nodes and pointers have already been declared: Node1, Node2, Node3. 
+Q6P:  Add an item to the end of the linked list. Nodes are Node1, Node2, Node3. Add the new node "Node4" with cargo "Fresh".
+Q7P: Remove an item from a linked list. Nodes are Node1, Node2, Node3. Remove Node2. Remember to change the pointers!
+Q8S: What is the difference between a start and heap pointer. 
+Q9S: What are the empty positions in the array called?
+
+
+"P" in 3rd index meaning:
+*Programming Q. Please do this on a seperate virtual environment and then enter "show answer" to compare programs.* 
+
+"S" in 3rd index meaning:
+*Short answer needed. Please enter the answer into the shell*
