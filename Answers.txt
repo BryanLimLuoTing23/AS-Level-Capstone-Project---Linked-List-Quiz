@@ -1,0 +1,56 @@
+A1: Finite
+
+A2: Yes
+
+A3: 1 list for the elements, 1 list for the pointers
+
+A4: 
+class Node:
+    def __init__(self, cargo=None,  next =None):
+        self.cargo = cargo
+        self.next  = next
+
+    def __str__(self):
+        return str(self.cargo) 
+
+Node1 = Node("Name1")
+Node2 = Node("Name2")
+Node3 = Node("Name3")
+
+Node1.next = Node2
+Node2.next = Node3
+
+A5:
+class Node: 
+  ...
+  def print_list(node):
+    while node is not None:
+      print(node)
+      node = node.next  #Once it reaches last node, the next value is None. 
+Node.print_list(Node1)
+
+A6:
+class Node:
+    ...
+    def addfourthnode(self, cargo):
+      Node4 = Node(cargo)
+      Node3.next = Node4
+
+
+Node.addfourthnode(Node4, "Fresh")
+
+A7: 
+class Node:
+  ...
+  def remove_second_node(self): #Need to enter name of first node
+    Node1 = self
+    Node2 = self.next
+    Node1.next = Node2.next
+    Node2.next = None
+
+Node.remove_second_node(Node1)
+
+A8: A Start pointer points to the start of the linked list. A heap pointer points to the start of the heap. 
+
+A9: The heap. 
+
