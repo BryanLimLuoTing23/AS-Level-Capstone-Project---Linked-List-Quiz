@@ -1,0 +1,98 @@
+from tkinter import *
+from tkinter import messagebox as mb, messagebox
+import json
+
+root = Tk()
+root.geometry("700x700")
+root.title("Quiz")
+
+with open ("Quizdata.json") as file:
+    jsonobject = json.load(file)
+
+questionlist = jsonobject["Questions"]
+options = jsonobject["OptionsGiven"]
+answers = jsonobject["Answers"]
+
+print (questionlist)
+print(options)
+print(answers)
+
+
+
+class Quiz:
+    def __init__(self):
+        self.questionnumber = 0
+        self.ques = self.question(self.questionnumber)
+        self.opt_selected = IntVar()
+        self.opts = self.radiobuttons()
+
+        #Initialise display options
+        self.display_options(self.questionnumber)
+
+        self.buttons()
+
+        self.correct = 0
+
+
+
+
+    def question(self,questionnumber):
+        title = Label(root, text="AS Linked list quiz", width=50, bg="green", fg="white",font = ("Helvetica",20,"bold"))
+        title.place(x=0, y=10)
+        questionnumber = Label(root, text=f"Q{str(questionnumber)} {questionlist[questionnumber]}", width=60, font = ("Helvetica",16,"bold"), anchor = "w")
+        questionnumber.place(x=70,y=100)
+        return questionnumber
+
+
+    def radiobuttons(self):
+        value = 0
+        radiobuttonlist = []
+        yposition = 150
+        while value < 2:
+            btn = Radiobutton(root, text=" ", variable = self.opt_selected, value = value+1, font=("times",14))
+            radiobuttonlist.append(btn)
+            btn.place(x=100,y=yposition)
+            value += 1
+            yposition += 50
+        return radiobuttonlist
+
+    def display_options(self, questionnumber):
+        value = 0
+        self.opt_selected.set(0)
+        self.ques["text"] = questionlist[questionnumber]
+        for op in options[questionnumber]:
+            self.opts[value]["text"] = op
+            value += 1
+
+    def buttons(self):
+        nextbutton = Button(root, text="Next Question", command=self.next_btn, width=10, bg = "red", fg = "white", font=("Helvetica",16,"bold"))
+        nextbutton.place(x=250,y=400)
+        quitbutton = Button(root, text="Quit", command=root.quit, width=10, bg="red",fg="white",font=("times",16,"bold"))
+        quitbutton.place(x=550,y=550)
+
+
+
+    #next button
+    def checkans(self,questionnumber):
+        if self.opt_selected.get() == answers[questionnumber]:
+            return True
+    def next_btn(self):
+        if self.checkans(self.questionnumber):
+            self.correct += 1
+        self.questionnumber += 1
+        if self.questionnumber == len(questionlist):
+            self.display_result()
+        else:
+            self.display_options(self.questionnumber)
+
+    def display_result(self):
+        score = f"{self.correct}"
+        result = f"Score: {score} / {len(questionlist)}"
+
+
+        messagebox.showinfo("Result", result)
+
+
+
+quiz = Quiz()
+root.mainloop()
