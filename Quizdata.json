@@ -1,0 +1,19 @@
+{
+  "Questions" : [
+    "Do Linked Lists have finite or infinite space?",
+    "Can items be removed from any position in the linked list?",
+    "According to the CIE syllabus, there are 2 arrays used to store the linked list. What are they?",
+    "What is the difference between a start and heap pointer."
+
+  ],
+
+  "OptionsGiven" : [
+    ["Finite","Infinite"],
+    ["Yes","No"],
+    ["1 list for elements, 1 list for pointers", "1 list for each node"],
+    ["A Start pointer points to the start of the linked list. A heap pointer points to the start of the heap.", "A start pointer points to the start of the linked list, a heap pointer points to the end of the linked list"]
+  ],
+
+  "Answers" : [1,2,1,1]
+
+}
